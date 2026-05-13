@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Run outputs (track the template, not individual runs)
+runs/run_*/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Logs (local session history)
+logs/
+
+# Research folders
+research/

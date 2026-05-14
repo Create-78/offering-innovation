@@ -1,0 +1,32 @@
+{
+  "name": "offering-innovation-plugin",
+  "version": "1.0.0",
+  "description": "5-phase problem-to-offering design pipeline for Claude Code. Transforms a problem statement into a market offering design grounded in jobs theory and competitive positioning.",
+  "bin": {
+    "offering-innovation-plugin": "./bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "dist/"
+  ],
+  "keywords": [
+    "claude-code",
+    "claude",
+    "ai",
+    "odi",
+    "jtbd",
+    "offering-design",
+    "innovation",
+    "strategy"
+  ],
+  "author": "willmcdermott-crowe",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willmcdermott-crowe/offering-innovation.git"
+  },
+  "homepage": "https://github.com/willmcdermott-crowe/offering-innovation#readme",
+  "engines": {
+    "node": ">=14"
+  }
+}

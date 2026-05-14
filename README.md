@@ -32,21 +32,17 @@ Five phases run in sequence. Each phase ends with a gate before you proceed.
 
 ## Installation
 
-**Requirements:** [Claude Code](https://claude.ai/code)
+**Requirements:** [Claude Code](https://claude.ai/code), Node.js
 
 ```bash
-git clone https://github.com/willmcdermott-crowe/offering-innovation
-cd offering-innovation-plugin
+npx offering-innovation-plugin
 ```
 
-### Claude Code
+Run outputs save to `runs/` in the current folder. Open that folder in Claude Code and tell Claude your problem.
 
+**Global install** (commands and skills available in all projects):
 ```bash
-# Project-specific (includes framework methodology files and run templates)
-cp -r dist/claude-code/. your-project/
-
-# Or global (commands and skills only — framework files won't be in the project)
-cp -r dist/claude-code/.claude/* ~/.claude/
+npx offering-innovation-plugin --global
 ```
 
 ### OpenCode

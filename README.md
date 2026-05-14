@@ -1,140 +1,116 @@
 # Offering Innovation
 
-A structured prototyping tool that transforms a problem statement into a market offering design.
+A Claude Code plugin that transforms a problem statement into a market offering design — grounded in jobs theory, first principles decomposition, and competitive positioning.
 
-Uses first principles decomposition, systems thinking, ODI Jobs Theory, and bottom-up offering construction to move from "here's a problem" to "here's what to build and for whom."
+```
+Run Phase 1 on this problem: [your problem statement]
+```
 
 ---
 
-## Quick Start
+## The Problem It Solves
 
-1. **Clone this repo** and open the folder in Claude Code
-2. **Start a new run:** Copy `runs/_template/` to `runs/run_001_[your-topic]/`
-3. **Begin:** Tell Claude your problem: `"Run Phase 1 on this problem: [your problem statement]"`
+Most offering development starts too late. Teams jump from "here's a problem" to "here's a solution" without understanding who actually has the problem, what they're fundamentally trying to accomplish, or why existing solutions fall short. The result is an offering that solves a symptom, targets the wrong buyer, or lands in a competitive space with no differentiation.
+
+This plugin forces the work that gets skipped: atomic root cause analysis, stakeholder system mapping, ODI-validated job mapping, and a diverge-then-converge offering design with explicit competitive positioning. Every claim requires evidence. Every capability traces to an unmet outcome.
 
 ---
 
 ## How It Works
 
-The tool follows a five-phase pipeline. Each phase ends with a decision gate before you proceed.
+Five phases run in sequence. Each phase ends with a gate before you proceed.
 
 | Phase | What It Does | Key Output |
 |-------|-------------|-----------|
-| **1. Problem Decomposition** | Strip the problem to irreducible root causes using first principles and 5 Whys | Atomic problem statement + execution barriers + unmet metrics |
-| **2. System Mapping** | Identify all stakeholders, classify job executors, map cross-dependencies | Stakeholder map + ranked executors for Phase 3 |
-| **3. Job Mapping** | Build an ODI-compliant job map per executor — core job, 8-step map, outcome statements | Job map + validated outcome statements with importance signals |
-| **4. Offering Design** | Diverge (unconstrained ideation) then Converge (competitive selection) | Offering definition + capabilities + falsifiable proof points |
-| **5. Analysis & Executive Summary** | Synthesize the full pipeline into a decision-ready document | Executive summary with chain of logic, validation plan, net assessment |
+| **1. Problem Decomposition** | Strip the problem to irreducible root causes via first principles and 5 Whys | Atomic problem statement + execution barriers + unmet metrics |
+| **2. System Mapping** | Identify all stakeholders, classify job executors, map cross-dependencies | Stakeholder map + ranked executors |
+| **3. Job Mapping** | Build an ODI-compliant job map per executor | Core job + 8-step map + validated outcome statements |
+| **4. Offering Design** | Diverge (unconstrained ideation) then converge (competitive analysis) | Offering definition + capabilities + proof points |
+| **5. Analysis & Executive Summary** | Synthesize the full pipeline into a decision-ready document | Chain-of-logic executive summary + validation plan |
 
 ---
 
-## What You Need to Bring
+## Installation
 
-- A problem statement (rough is fine — the process refines it)
-- Willingness to find external sources (the framework requires citation at each gate)
-- ~4-8 hours across the full pipeline for a first-time run
+**Requirements:** [Claude Code](https://claude.ai/code)
 
----
+```bash
+git clone https://github.com/willmcdermott-crowe/offering-innovation
+cd offering-innovation-plugin
+```
 
-## What the Tool Produces
-
-By the end of a full run, you'll have:
-
-| Artifact | File | Description |
-|----------|------|-------------|
-| Atomic problem statement | `phase-1-output.md` | Root-cause-grounded, evidence-backed, solution-agnostic |
-| Stakeholder system map | `phase-2-output.md` | All actors classified, cross-dependencies mapped |
-| ODI job map(s) | `phase-3-output.md` | Core job + 8-step map + validated outcome statements |
-| Offering design | `phase-4-output.md` | Capabilities, value proposition, competitive positioning, proof points |
-| Executive summary | `executive-summary.md` | Chain of logic + deep offering description + validation plan + net assessment |
+Open the folder in Claude Code. No additional dependencies required.
 
 ---
 
-## File Structure
+## Usage
+
+Copy `runs/_template/` to start a new run:
+
+```bash
+cp -r runs/_template/ runs/run_001_your-topic/
+```
+
+Then tell Claude your problem:
 
 ```
-offering-innovation-plugin/
-├── README.md                  # This file
-├── CLAUDE.md                  # AI context and instructions
-├── framework/                 # Methodology documentation
-│   ├── data-model.md          # Three-tier x four-domain data structure
-│   ├── phase-1-problem.md     # Phase 1 detailed process
-│   ├── phase-2-system-mapping.md
-│   ├── phase-3-job-map.md
-│   ├── phase-4-offering.md
-│   └── phase-5-analysis.md
-├── runs/                      # Your prototype runs (one folder per problem)
-│   └── _template/             # Blank run template — copy this to start
-├── tests/                     # Deterministic validation suite
-│   └── validate.py
-└── .claude/                   # Claude Code configuration
-    ├── commands/              # Slash commands (/init, /status, /decision)
-    ├── rules/                 # Auto-loaded guidelines
-    ├── skills/                # Specialized capabilities
-    └── templates/             # Document templates
+Run Phase 1 on this problem: [your problem statement]
 ```
+
+Or with an existing run folder open, use `/init` to be guided through setup.
+
+---
+
+## What One Run Produces
+
+| Artifact | What It Contains |
+|----------|-----------------|
+| `phase-1-output.md` | Root-cause-grounded problem statement, evidence-backed, solution-agnostic |
+| `phase-2-output.md` | All actors classified, cross-dependencies mapped, executors ranked |
+| `phase-3-output.md` | Core job, 8-step job map, validated outcome statements with importance signals |
+| `phase-4-output.md` | Offering definition, capabilities, competitive positioning, falsifiable proof points |
+| `executive-summary.md` | Chain of logic, deep offering description, validation plan, net assessment |
 
 ---
 
 ## Methodology
 
-The framework combines four approaches:
-
 | Approach | Where Used | Why |
 |----------|-----------|-----|
 | **First Principles Decomposition** | Phase 1 | Separates structural truths from inherited assumptions |
-| **5 Whys** | Phase 1 | Reaches terminal root causes with citation requirements |
-| **ODI (Outcome-Driven Innovation)** | Phases 3-4 | Most rigorous Jobs Theory methodology; maps directly to measurable outcomes |
+| **5 Whys** | Phase 1 | Reaches terminal root causes; citation required at each Why |
+| **ODI (Outcome-Driven Innovation)** | Phases 3–4 | Maps directly to measurable executor outcomes; prevents solution-shaped job descriptions |
 | **Design Thinking (Diverge/Converge)** | Phase 4 | Unconstrained ideation first; competitive analysis informs selection |
 
-### The Data Model
+**The data model:** All outputs map to a 3-tier × 4-domain grid (Job/Problem/Offering/Process at the tier level; JTBD/Problem/Offering/Process at the domain level). This structure ensures every capability traces to an unmet outcome and every outcome traces to a root-cause problem.
 
-All outputs map to a **3-tier x 4-domain grid:**
-
-|  | JTBD Domain | Problem Domain | Offering Domain | Process Domain |
-|--|-------------|---------------|-----------------|----------------|
-| **Tier 1 (Job/Problem/Offering/Process)** | Core Job | Problem Statement | Offering Name | Work Process |
-| **Tier 2 (Step)** | Job Map Steps | Execution Barriers | Capabilities | Process Steps |
-| **Tier 3 (Outcome)** | Outcome Statements | Unmet Metrics | Performance Requirements | Proof Points |
+**Five analytical sub-agents** activate at key moments: Assumption Challenger, ODI Compliance Checker, Outcome Research Validator, Cross-Reference Mapper, and Systems Dynamics Checker. These run automatically — you don't invoke them manually.
 
 ---
 
-## Analytical Sub-Agents
-
-Five analytical perspectives are invoked at key moments:
-
-| Sub-Agent | Purpose | Triggered |
-|-----------|---------|-----------|
-| **Assumption Challenger** | Pressure-tests claims for hidden assumptions | Phases 1, 2, 4 |
-| **ODI Compliance Checker** | Validates JTBD artifacts against strict ODI rules | Phase 3 |
-| **Outcome Research Validator** | Finds 3+ third-party sources per outcome | Phase 3 |
-| **Cross-Reference Mapper** | Maintains linkages across four domains | Phases 3-4 |
-| **Systems Dynamics Checker** | Identifies feedback loops and second-order effects | Phases 2, 4 |
-
----
-
-## Validation Suite
+## Validation
 
 Run deterministic checks after each phase:
 
 ```bash
 python tests/validate.py runs/your-run/ --phase 1
-python tests/validate.py runs/your-run/ --phase 2
-# etc.
+python tests/validate.py runs/your-run/ --phase 3
+python tests/validate.py runs/your-run/
 ```
 
-Results:
-- **PASS** — check met
-- **WARN** — potential issue, review before proceeding
-- **FAIL** — gate criterion not met, fix required
-- **SKIP** — check not applicable (phase not started)
+Results: `PASS` / `WARN` / `FAIL` / `SKIP` per check. Checks include citation counts, ODI outcome format compliance, solution-agnostic language detection, required sections, and placeholder detection.
 
 ---
 
-## Tips
+## Guardrails
 
-- **Don't skip Phase 2.** The stakeholder system map is what prevents you from mapping the wrong executor's job in Phase 3.
-- **Citations are not optional.** The 3-source requirement at each gate exists because analytically constructed problems/jobs produce phantom offerings. Evidence grounds the work.
-- **The "So What?" test is the hardest part.** If you can't name a competitor and explain what you do that they don't, the offering isn't differentiated yet.
-- **Proxy scoring is honest.** The framework flags when quantitative ODI opportunity scoring isn't available. Proxy scores serve the prioritization function but should be replaced with survey data if the offering moves forward.
-- **Phase 5 is synthesis, not summary.** Don't retell each phase — make the logical chain from problem to offering explicit and evidence-backed.
+- **Citations are not optional.** The 3-source requirement at each gate exists because analytically constructed problems and jobs produce phantom offerings. Evidence grounds the work.
+- **One offering by default.** Splitting into multiple offerings requires affirmative evidence: different buyers, different value props, or independent adoption paths. The burden of proof is on the split.
+- **Gate failures block, not warn.** A failed gate criterion must be corrected before proceeding — it can't be noted and bypassed.
+- **The "So What?" test.** If you can't name a competitor and explain specifically what you do that they don't, the offering isn't differentiated yet.
+
+---
+
+## License
+
+MIT

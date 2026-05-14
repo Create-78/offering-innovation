@@ -39,7 +39,73 @@ git clone https://github.com/willmcdermott-crowe/offering-innovation
 cd offering-innovation-plugin
 ```
 
-Open the folder in Claude Code. No additional dependencies required.
+### Claude Code
+
+```bash
+# Project-specific (includes framework methodology files and run templates)
+cp -r dist/claude-code/. your-project/
+
+# Or global (commands and skills only — framework files won't be in the project)
+cp -r dist/claude-code/.claude/* ~/.claude/
+```
+
+### OpenCode
+
+```bash
+cp -r dist/opencode/. your-project/
+```
+
+### GitHub Copilot
+
+```bash
+cp -r dist/github/.github your-project/
+```
+
+### Gemini CLI
+
+```bash
+cp -r dist/gemini/.gemini your-project/
+```
+
+### Codex CLI
+
+```bash
+cp -r dist/codex/.agents your-project/
+mkdir -p your-project/.codex
+cp -r dist/codex/.codex/agents your-project/.codex/
+```
+
+### Trae
+
+```bash
+cp -r dist/trae/.trae/skills/* ~/.trae/skills/
+```
+
+### Rovo Dev
+
+```bash
+# Project-specific
+cp -r dist/rovo-dev/.rovodev your-project/
+
+# Or global
+cp -r dist/rovo-dev/.rovodev/skills/* ~/.rovodev/skills/
+```
+
+### Qoder
+
+```bash
+# Project-specific
+cp -r dist/qoder/.qoder your-project/
+
+# Or global
+cp -r dist/qoder/.qoder/skills/* ~/.qoder/skills/
+```
+
+### Pi
+
+```bash
+cp -r dist/pi/.pi your-project/
+```
 
 ---
 
